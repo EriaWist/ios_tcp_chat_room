@@ -14,6 +14,7 @@ struct ContentView: View {
     var tcp = NWConnection(host: NWEndpoint.Host("127.0.0.1"), port: NWEndpoint.Port(rawValue: 5678)!, using: .tcp)
     var body: some View {
         VStack {
+            settingBar()
             readMessage(tcp: tcp)
                 .padding(.bottom, 10.0)
             sendMessage(tcp: tcp)

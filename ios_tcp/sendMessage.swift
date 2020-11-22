@@ -26,7 +26,6 @@ struct sendMessage: View {
             }
         }
         .padding(.horizontal, 35.0)
-        
     }
 }
 

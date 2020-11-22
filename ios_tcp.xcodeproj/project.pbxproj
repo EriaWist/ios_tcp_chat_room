@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		76297690255E2F4B00C83FF7 /* readMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629768F255E2F4B00C83FF7 /* readMessage.swift */; };
 		76297698255E442C00C83FF7 /* sendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76297697255E442C00C83FF7 /* sendMessage.swift */; };
+		762976D1256A2D3300C83FF7 /* messageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762976D0256A2D3300C83FF7 /* messageType.swift */; };
+		762976D8256A662D00C83FF7 /* settingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762976D7256A662D00C83FF7 /* settingBar.swift */; };
 		767D7A6B255D9671001EFFE7 /* ios_tcpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D7A6A255D9671001EFFE7 /* ios_tcpApp.swift */; };
 		767D7A6D255D9671001EFFE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D7A6C255D9671001EFFE7 /* ContentView.swift */; };
 		767D7A6F255D9676001EFFE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767D7A6E255D9676001EFFE7 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		7629768F255E2F4B00C83FF7 /* readMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readMessage.swift; sourceTree = "<group>"; };
 		76297697255E442C00C83FF7 /* sendMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMessage.swift; sourceTree = "<group>"; };
+		762976D0256A2D3300C83FF7 /* messageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageType.swift; sourceTree = "<group>"; };
+		762976D7256A662D00C83FF7 /* settingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingBar.swift; sourceTree = "<group>"; };
 		767D7A67255D9671001EFFE7 /* ios_tcp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_tcp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767D7A6A255D9671001EFFE7 /* ios_tcpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_tcpApp.swift; sourceTree = "<group>"; };
 		767D7A6C255D9671001EFFE7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		762976D3256A2D7B00C83FF7 /* readMessage */ = {
+			isa = PBXGroup;
+			children = (
+				7629768F255E2F4B00C83FF7 /* readMessage.swift */,
+				762976D0256A2D3300C83FF7 /* messageType.swift */,
+			);
+			path = readMessage;
+			sourceTree = "<group>";
+		};
 		767D7A5E255D9671001EFFE7 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +69,11 @@
 		767D7A69255D9671001EFFE7 /* ios_tcp */ = {
 			isa = PBXGroup;
 			children = (
+				762976D3256A2D7B00C83FF7 /* readMessage */,
 				76297697255E442C00C83FF7 /* sendMessage.swift */,
+				762976D7256A662D00C83FF7 /* settingBar.swift */,
 				767D7A6A255D9671001EFFE7 /* ios_tcpApp.swift */,
 				767D7A6C255D9671001EFFE7 /* ContentView.swift */,
-				7629768F255E2F4B00C83FF7 /* readMessage.swift */,
 				767D7A6E255D9676001EFFE7 /* Assets.xcassets */,
 				767D7A73255D9676001EFFE7 /* Info.plist */,
 				767D7A70255D9676001EFFE7 /* Preview Content */,
@@ -144,9 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				762976D1256A2D3300C83FF7 /* messageType.swift in Sources */,
 				767D7A6D255D9671001EFFE7 /* ContentView.swift in Sources */,
 				76297690255E2F4B00C83FF7 /* readMessage.swift in Sources */,
 				767D7A6B255D9671001EFFE7 /* ios_tcpApp.swift in Sources */,
+				762976D8256A662D00C83FF7 /* settingBar.swift in Sources */,
 				76297698255E442C00C83FF7 /* sendMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

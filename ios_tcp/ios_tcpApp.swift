@@ -11,7 +11,8 @@ import SwiftUI
 struct ios_tcpApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+                ContentView()
+            
         }
     }
 }
