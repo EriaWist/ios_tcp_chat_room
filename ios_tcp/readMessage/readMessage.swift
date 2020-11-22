@@ -39,7 +39,15 @@ struct readMessage: View {
         //等待tcp回傳訊息 並放入陣列
         for i in 1...100 {
             tcp.receive(minimumIncompleteLength: 1, maximumLength: 100) { (Data, ContentContext, Bool, NWError) in
-                messageData_arrary.insert(messageType(mainMessage: String(data: Data!, encoding: .utf8)!), at: 0)//最後將資料插入第0格
+                if (Data != nil)
+                {
+                    messageData_arrary.insert(messageType(mainMessage: String(data: Data!, encoding: .utf8)!), at: 0)//最後將資料插入第0格
+                }
+                else
+                {
+                    messageData_arrary.insert(messageType(mainMessage:"伺服器關閉"), at: 0)//最後將資料插入第0格
+                }
+                
             }
         }
     }

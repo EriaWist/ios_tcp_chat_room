@@ -6,21 +6,30 @@
 //
 
 import SwiftUI
-
+import Network
 struct settingBar: View {
+    @Binding var tcp:NWConnection
     var body: some View {
         HStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+            Text("聊天室")
+                .font(.title)
                 
+            Spacer()
+            Button(action: {
+                tcp.restart()
+            }) {
+                Image(systemName: "goforward").resizable().frame(width: 40.0, height: 40.0).scaledToFill()
+            
             }
+            Button(action: {}) {
+                Image(systemName: "slider.horizontal.3").resizable().frame(width: 40.0, height: 40.0).scaledToFill()
+            
+            }
+            
         }
+        .padding(.horizontal, 30.0)
     }
 }
 
-struct settingBar_Previews: PreviewProvider {
-    static var previews: some View {
-        settingBar()
-    }
-}
+

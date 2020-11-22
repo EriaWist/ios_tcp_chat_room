@@ -11,10 +11,11 @@ struct ContentView: View {
     init() {
             tcp.start(queue: .main)
     }
-    var tcp = NWConnection(host: NWEndpoint.Host("127.0.0.1"), port: NWEndpoint.Port(rawValue: 5678)!, using: .tcp)
+    @State var tcp = NWConnection(host: NWEndpoint.Host("127.0.0.1"), port: NWEndpoint.Port(rawValue: 5678)!, using: .tcp)
     var body: some View {
         VStack {
-            settingBar()
+            settingBar(tcp:$tcp)
+                .frame(height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
             readMessage(tcp: tcp)
                 .padding(.bottom, 10.0)
             sendMessage(tcp: tcp)
