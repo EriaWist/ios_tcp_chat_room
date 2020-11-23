@@ -37,31 +37,34 @@ struct readMessage: View {
     }
     func getServerMessage() {
         //等待tcp回傳訊息 並放入陣列
-        for i in 1...100 {
-            tcp.receive(minimumIncompleteLength: 1, maximumLength: 100) { (Data, ContentContext, Bool, NWError) in
-                if (Data != nil)
-                {
-                    messageData_arrary.insert(messageType(mainMessage: String(data: Data!, encoding: .utf8)!), at: 0)//最後將資料插入第0格
-                }
-                else
-                {
-                    messageData_arrary.insert(messageType(mainMessage:"伺服器關閉"), at: 0)//最後將資料插入第0格
-                }
+        
+        tcp.receive(minimumIncompleteLength: 1, maximumLength: 100) { (Data, ContentContext, Bool, NWError) in
+            if (Data != nil)
+            {
+                messageData_arrary.insert(messageType(mainMessage: String(data: Data!, encoding: .utf8)!), at: 0)//最後將資料插入第0格
+                getServerMessage()
+            }
+            else
+            {
+                messageData_arrary.insert(messageType(mainMessage:"伺服器關閉"), at: 0)//最後將資料插入第0格
                 
             }
+            
+            
         }
+        
     }
     
-
+    
 }
 struct messageCellView: View {
     var data:messageType
     var body:some View{
         Text(data.mainMessage).rotationEffect(.radians(.pi))//因為List180度翻轉所以文字是反的把text顯示倒轉180才會是正的
-                    .scaleEffect(x: -1, y: 1, anchor: .center)
+            .scaleEffect(x: -1, y: 1, anchor: .center)
     }
     
-
+    
 }
 
 
