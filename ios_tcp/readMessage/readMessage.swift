@@ -18,7 +18,7 @@ import Network
 struct readMessage: View {
     @State var messageData_arrary:[messageType]=[]
     
-    var tcp:NWConnection
+    @Binding var tcp:NWConnection
     
     var body: some View {
         VStack{
@@ -31,22 +31,28 @@ struct readMessage: View {
             .rotationEffect(.radians(.pi))//把list倒轉180
             .scaleEffect(x: -1, y: 1, anchor: .center)
         }.onAppear(){
-            getServerMessage()
+            getServerMessage(messageSw: true)
         }
         
     }
-    func getServerMessage() {
+
+    func getServerMessage(messageSw:Bool) {
         //等待tcp回傳訊息 並放入陣列
         
         tcp.receive(minimumIncompleteLength: 1, maximumLength: 100) { (Data, ContentContext, Bool, NWError) in
-            if (Data != nil)
+            if (tcp.state == .ready)
             {
-                messageData_arrary.insert(messageType(mainMessage: String(data: Data!, encoding: .utf8)!), at: 0)//最後將資料插入第0格
-                getServerMessage()
+                messageData_arrary.insert(messageType(mainMessage: String(data: Data!, encoding: .utf8) ??  ""), at: 0)//最後將資料插入第0格
+                getServerMessage(messageSw:true)
             }
             else
             {
-                messageData_arrary.insert(messageType(mainMessage:"伺服器關閉"), at: 0)//最後將資料插入第0格
+                if(messageSw)
+                {
+                    messageData_arrary.insert(messageType(mainMessage:"伺服器關閉"), at: 0)//最後將資料插入第0格
+                    
+                }
+                getServerMessage(messageSw: false)
                 
             }
             

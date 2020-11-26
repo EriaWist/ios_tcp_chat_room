@@ -16,7 +16,7 @@ struct ContentView: View {
         VStack {
             settingBar(tcp:$tcp)
                 .frame(height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
-            readMessage(tcp: tcp)
+            readMessage(tcp: $tcp)
                 .padding(.bottom, 10.0)
             sendMessage(tcp: tcp)
         }
